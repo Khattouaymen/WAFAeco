@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salaf Ecolo - Wafasalaf | Financement pour projets écologiques</title>
+    <style>
+        :root {
+            --primary-color: #00914e;
+            --secondary-color: #68b74a;
+            --accent-color: #f8c93e;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --text-color: #333;
+            --light-text: #555;
+            --white: #fff;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--white);
+            color: var(--dark-color);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .hero {
+            padding: 120px 0 100px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%), url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://assets.codepen.io/3364143/leaf-light.svg') no-repeat;
+            background-size: 150%;
+            background-position: -50% -20%;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            font-weight: 700;
+            line-height: 1.2;
+            position: relative;
+        }
+        
+        .hero h1 span {
+            color: var(--secondary-color);
+        }
+        
+        .hero p {
+            font-size: 19px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--light-text);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            margin-left: 15px;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .features {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .section-title p {
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            background: var(--white);
+            text-align: center;
+            border-bottom: 4px solid transparent;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-15px);
+            border-bottom-color: var(--primary-color);
+        }
+        
+        .feature-card h3 {
+            margin: 20px 0 15px;
+            color: var(--primary-color);
+            font-size: 22px;
+        }
+        
+        .feature-icon {
+            font-size: 44px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            display: inline-block;
+            background-color: rgba(104, 183, 74, 0.1);
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover .feature-icon {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+        
+        .chat-hint {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            z-index: 99998;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0 60px;
+            }
+            
+            nav {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+            }
+        }
+
+        .how-it-works {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+            position: relative;
+        }
+        
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            position: relative;
+        }
+        
+        .steps:before {
+            content: '';
+            position: absolute;
+            top: 35px;
+            left: 15%;
+            width: 70%;
+            height: 3px;
+            background-color: #e1e1e1;
+            z-index: 0;
+        }
+        
+        .step {
+            width: 220px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step-number {
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: var(--white);
+            margin: 0 auto 20px;
+            font-size: 24px;
+            font-weight: 700;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 145, 78, 0.2);
+            transition: var(--transition);
+        }
+        
+        .step:hover .step-number {
+            transform: scale(1.1);
+            background-color: var(--secondary-color);
+        }
+        
+        .step h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .step p {
+            color: var(--light-text);
+            font-size: 15px;
+        }
+        
+        .projects {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .project-category {
+            margin-top: 50px;
+        }
+        
+        .project-category h3 {
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-size: 24px;
+            position: relative;
+            display: inline-block;
+            padding-left: 15px;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .project-item {
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            padding: 25px;
+            transition: var(--transition);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-left: 3px solid transparent;
+        }
+        
+        .project-item:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            border-left-color: var(--primary-color);
+        }
+        
+        .project-item h4 {
+            color: var(--dark-color);
+            margin-bottom: 12px;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .project-item h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .project-item p {
+            color: var(--light-text);
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .testimonials {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials:before {
+            content: '';
+            position: absolute;
+            right: -100px;
+            top: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: rgba(104, 183, 74, 0.1);
+            z-index: 0;
+        }
+        
+        .testimonials:after {
+            content: '';
+            position: absolute;
+            left: -100px;
+            bottom: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: rgba(0, 145, 78, 0.1);
+            z-index: 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            border-top-color: var(--secondary-color);
+        }
+        
+        .testimonial-card:before {
+            content: '\201C';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 120px;
+            font-family: Georgia, serif;
+            color: rgba(0, 145, 78, 0.1);
+            line-height: 1;
+            z-index: 0;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+            color: var(--light-text);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 3px solid var(--primary-color);
+        }
+        
+        .testimonial-author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-author-info h4 {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-author-info p {
+            font-size: 14px;
+            color: var(--light-text);
+        }
+        
+        .calculator {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .calculator-container {
+            display: flex;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            gap: 50px;
+        }
+        
+        .calculator-img {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .calculator-img:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 145, 78, 0.3) 0%, rgba(104, 183, 74, 0.2) 100%);
+            z-index: 1;
+        }
+        
+        .calculator-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .calculator-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .calculator-form {
+            flex: 1;
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .calculator-form h3 {
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 145, 78, 0.1);
+        }
+        
+        .form-range {
+            width: 100%;
+            -webkit-appearance: none;
+            height: 10px;
+            border-radius: 5px;
+            background: #ddd;
+            outline: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+        
+        .form-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .form-range::-webkit-slider-thumb:hover {
+            background: var(--secondary-color);
+        }
+        
+        .range-values {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: var(--light-text);
+        }
+        
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(0, 145, 78, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .result p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .result strong {
+            color: var(--primary-color);
+            font-size: 18px;
+        }
+        
+        .faq {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .accordion {
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+        
+        .accordion-item {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background-color: var(--white);
+            transition: var(--transition);
+        }
+        
+        .accordion-item:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .accordion-header {
+            padding: 20px;
+            background-color: var(--white);
+            color: var(--dark-color);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .accordion-header:hover {
+            color: var(--primary-color);
+        }
+        
+        .accordion-header:after {
+            content: '\002B';
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .accordion-header.active {
+            color: var(--primary-color);
+        }
+        
+        .accordion-header.active:after {
+            content: '\2212';
+        }
+        
+        .accordion-body {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .accordion-content {
+            padding: 20px 0;
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        .cta {
+            padding: 100px 0;
+            background-color: var(--primary-color);
+            text-align: center;
+            color: var(--white);
+            background-image: linear-gradient(135deg, rgba(0, 145, 78, 0.95) 0%, rgba(104, 183, 74, 0.9) 100%), url('https://images.unsplash.com/photo-1580377968131-74dfa0bc0a67?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .cta h2 {
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .cta .btn {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+        
+        .cta .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 70px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: var(--white);
+            transition: var(--transition);
+            font-size: 18px;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Menu mobile */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        @media (max-width: 992px) {
+            .calculator-container {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .steps:before {
+                display: none;
+            }
+            
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 0;
+                transition: 0.3s;
+                z-index: 999;
+                overflow-y: auto;
+                margin-top: 0;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .hero {
+                padding: 80px 0 60px;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-title h2 {
+                font-size: 26px;
+            }
+            
+            .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .step {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 30px;
+            }
+            
+            .feature-grid, .testimonial-grid, .project-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+            
+            .cta h2 {
+                font-size: 28px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .calculator-img {
+                margin-bottom: 30px;
+            }
+            
+            .calculator-form {
+                padding: 25px;
+            }
+        }
+    </style>
+    <!-- Intégration des polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Intégration des icônes Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="https://wafasalaf.ma/img/logo-wafasalaf.svg" alt="Wafasalaf Logo">
+                    <span>Wafasalaf</span>
+                </div>
+                <button class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul id="mobile-menu">
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#how-it-works">Comment ça marche</a></li>
+                    <li><a href="#features">Avantages</a></li>
+                    <li><a href="#projects">Projets éligibles</a></li>
+                    <li><a href="#calculator">Simulateur</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge">Salaf Ecolo</span>
+                <h1>Financez vos projets <span>écologiques</span> avec un crédit responsable</h1>
+                <p>Bénéficiez d'un financement avantageux pour vos solutions vertes avec le crédit Salaf Ecolo de Wafasalaf. Contribuez à un avenir durable tout en réalisant des économies substantielles.</p>
+                <div>
+                    <a href="#calculator" class="btn">Simuler mon crédit</a>
+                    <a href="#eligibility" class="btn btn-secondary">Vérifier mon éligibilité</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>Comment fonctionne Salaf Ecolo ?</h2>
+                <p>Un processus simple pour financer vos projets écologiques</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Simulation</h3>
+                    <p>Utilisez notre simulateur en ligne pour estimer le montant de votre crédit et vos mensualités</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Dépôt de dossier</h3>
+                    <p>Complétez votre dossier en ligne ou en agence avec les documents justificatifs nécessaires</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Étude & Validation</h3>
+                    <p>Votre demande est étudiée sous 48h et une décision vous est communiquée rapidement</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Financement</h3>
+                    <p>Une fois approuvé, le financement est débloqué et vous pouvez réaliser votre projet écologique</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pourquoi choisir Salaf Ecolo ?</h2>
+                <p>Des avantages exclusifs pour vos projets écologiques</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-percentage feature-icon"></i>
+                    <h3>Taux Préférentiel</h3>
+                    <p>Bénéficiez d'un taux d'intérêt réduit de 2% par rapport aux crédits classiques, pour économiser jusqu'à 15 000 DH sur la durée totale de votre crédit.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-calendar-alt feature-icon"></i>
+                    <h3>Durée Flexible</h3>
+                    <p>Remboursez votre crédit sur une période allant jusqu'à 84 mois, avec des mensualités adaptées à votre budget et votre capacité de remboursement.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-coins feature-icon"></i>
+                    <h3>Financement Avantageux</h3>
+                    <p>Financez jusqu'à 100% de votre projet écologique avec un montant pouvant aller de 10 000 DH à 600 000 DH selon vos besoins.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bolt feature-icon"></i>
+                    <h3>Traitement Rapide</h3>
+                    <p>Obtenez une réponse à votre demande en 48h seulement et bénéficiez d'un processus simplifié pour démarrer rapidement votre projet écologique.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-leaf feature-icon"></i>
+                    <h3>Impact Environnemental</h3>
+                    <p>Pour chaque crédit Salaf Ecolo accordé, Wafasalaf s'engage à planter un arbre, contribuant ainsi à la reforestation et à la lutte contre le changement climatique.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-tag feature-icon"></i>
+                    <h3>Frais Réduits</h3>
+                    <p>Profitez de frais de dossier allégés et d'une assurance à tarif préférentiel, spécialement conçus pour encourager les initiatives écologiques.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projets Éligibles au Salaf Ecolo</h2>
+                <p>Découvrez les types de projets que vous pouvez financer avec notre crédit écologique</p>
+            </div>
+            
+            <div class="project-category">
+                <h3>Mobilité Durable</h3>
+                <div class="project-list">
+                    <div class="project-item">
+                        <h4>Véhicules Électriques</h4>
+                        <p>Financez l'achat d'une voiture électrique ou hybride pour réduire votre empreinte carbone.</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>Vélos Électriques</h4>
+                        <p>Optez pour un mode de transport écologique avec un vélo à assistance électrique pour vos déplacements quotidiens.</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>Bornes de Recharge</h4>
+                        <p>Installez une borne de recharge à votre domicile pour plus de commodité avec votre véhicule électrique.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-category">
+                <h3>Efficacité Énergétique</h3>
+                <div class="project-list">
+                    <div class="project-item">
+                        <h4>Panneaux Solaires</h4>
+                        <p>Produisez votre propre électricité et réduisez vos factures avec une installation photovoltaïque.</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>Isolation Thermique</h4>
+                        <p>Améliorez l'isolation de votre habitation pour réduire vos besoins en chauffage et climatisation.</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>Systèmes de Chauffage Écologiques</h4>
+                        <p>Remplacez votre ancien système par une pompe à chaleur, un chauffage à biomasse ou un chauffe-eau solaire.</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>Fenêtres à Double Vitrage</h4>
+                        <p>Limitez les déperditions de chaleur avec des fenêtres à haute performance énergétique.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-category">
+                <h3>Gestion de l'Eau</h3>
+                <div class="project-list">
+                    <div class="project-item">
+                        <h4>Récupération d'Eau de Pluie</h4>
+                        <p>Installez un système de collecte d'eau de pluie pour l'arrosage ou les usages domestiques non potables.</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>Systèmes d'Irrigation Intelligents</h4>
+                        <p>Optimisez votre consommation d'eau avec des systèmes d'arrosage économes et programmables.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ce que disent nos clients</h2>
+                <p>Découvrez les témoignages de clients qui ont réalisé leurs projets écologiques grâce à Salaf Ecolo</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Grâce au crédit Salaf Ecolo, j'ai pu installer des panneaux solaires sur mon toit. Mes factures d'électricité ont diminué de 70% et je contribue activement à la protection de l'environnement. Le processus de demande était simple et rapide !</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-img">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ahmed K.">
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h4>Ahmed K.</h4>
+                            <p>Casablanca</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">J'hésitais à franchir le pas pour l'achat d'une voiture électrique à cause du coût initial. Wafasalaf m'a proposé une solution adaptée à mon budget avec des taux très avantageux. Maintenant, je roule en électrique et j'économise sur le carburant !</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-img">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Leila M.">
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h4>Leila M.</h4>
+                            <p>Rabat</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">L'isolation thermique de ma maison était une priorité pour réduire notre consommation énergétique. Le crédit Salaf Ecolo nous a permis de réaliser ces travaux sans impacter notre trésorerie. Service client impeccable et conseils pertinents !</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-img">
+                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Karim B.">
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h4>Karim B.</h4>
+                            <p>Marrakech</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="calculator">
+        <div class="container">
+            <div class="section-title">
+                <h2>Simulez votre crédit Salaf Ecolo</h2>
+                <p>Calculez vos mensualités et obtenez une estimation rapide pour financer votre projet écologique</p>
+            </div>
+            <div class="calculator-container">
+                <div class="calculator-img">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="Calculateur de crédit écologique">
+                </div>
+                <div class="calculator-form">
+                    <h3>Votre simulation personnalisée</h3>
+                    <div class="form-group">
+                        <label for="loan-amount">Montant du crédit (DH)</label>
+                        <input type="number" id="loan-amount" class="form-control" value="100000" min="10000" max="600000">
+                        <input type="range" id="loan-amount-range" class="form-range" min="10000" max="600000" step="10000" value="100000">
+                        <div class="range-values">
+                            <span>10 000 DH</span>
+                            <span>600 000 DH</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="loan-duration">Durée (mois)</label>
+                        <input type="number" id="loan-duration" class="form-control" value="48" min="12" max="84">
+                        <input type="range" id="loan-duration-range" class="form-range" min="12" max="84" step="12" value="48">
+                        <div class="range-values">
+                            <span>12 mois</span>
+                            <span>84 mois</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-type">Type de projet</label>
+                        <select id="project-type" class="form-control">
+                            <option value="solar">Panneaux solaires</option>
+                            <option value="car">Véhicule électrique</option>
+                            <option value="isolation">Isolation thermique</option>
+                            <option value="heating">Chauffage écologique</option>
+                            <option value="water">Système de gestion d'eau</option>
+                            <option value="other">Autre projet écologique</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button id="calculate-btn" class="btn">Calculer mes mensualités</button>
+                    </div>
+                    <div class="result" id="result">
+                        <p>Pour un crédit de <strong>100 000 DH</strong> sur <strong>48 mois</strong></p>
+                        <p>Votre mensualité estimée : <strong>2 291 DH</strong></p>
+                        <p>Taux d'intérêt annuel : <strong>5,5%</strong></p>
+                        <p>Économie réalisée par rapport à un crédit standard : <strong>4 320 DH</strong></p>
+                        <p><small>* Simulation à titre indicatif, non contractuelle</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Questions fréquentes</h2>
+                <p>Tout ce que vous devez savoir sur le crédit Salaf Ecolo</p>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">Quels sont les critères d'éligibilité pour le crédit Salaf Ecolo ?</div>
+                    <div class="accordion-body">
+                        <div class="accordion-content">
+                            Pour être éligible au crédit Salaf Ecolo, vous devez être âgé de 18 à 65 ans, justifier d'un revenu régulier (salaire, pension, revenus de profession libérale), et disposer d'une capacité de remboursement suffisante. Le projet financé doit également répondre aux critères écologiques définis par Wafasalaf, comme l'installation de panneaux solaires, l'achat d'un véhicule électrique, ou des travaux d'isolation thermique.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Quel est le montant maximum que je peux emprunter ?</div>
+                    <div class="accordion-body">
+                        <div class="accordion-content">
+                            Avec Salaf Ecolo, vous pouvez emprunter de 10 000 DH jusqu'à 600 000 DH, selon vos besoins et votre capacité de remboursement. Le montant exact sera déterminé après étude de votre dossier, en tenant compte de vos revenus et de vos charges actuelles.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Quels documents faut-il fournir pour une demande de crédit Salaf Ecolo ?</div>
+                    <div class="accordion-body">
+                        <div class="accordion-content">
+                            Les documents requis comprennent : une pièce d'identité valide, les trois derniers relevés bancaires, les justificatifs de revenus (bulletins de salaire ou avis d'imposition), un justificatif de domicile, et un devis détaillé ou une facture pro forma du projet écologique à financer. Des documents spécifiques peuvent être demandés selon la nature de votre projet.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">En combien de temps ma demande de crédit sera-t-elle traitée ?</div>
+                    <div class="accordion-body">
+                        <div class="accordion-content">
+                            Wafasalaf s'engage à traiter votre demande de crédit Salaf Ecolo dans un délai de 48 heures ouvrables après réception de votre dossier complet. Une fois votre crédit approuvé, le déblocage des fonds se fait généralement sous 24 à 72 heures supplémentaires.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Est-ce que je peux rembourser mon crédit par anticipation ?</div>
+                    <div class="accordion-body">
+                        <div class="accordion-content">
+                            Oui, vous pouvez rembourser votre crédit Salaf Ecolo par anticipation, partiellement ou totalement. Conformément à la réglementation en vigueur, des indemnités de remboursement anticipé plafonnées à 2% du capital restant dû peuvent s'appliquer. Consultez nos conseillers pour plus de détails sur les conditions de remboursement anticipé.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Le crédit Salaf Ecolo est-il plus avantageux qu'un crédit classique ?</div>
+                    <div class="accordion-body">
+                        <div class="accordion-content">
+                            Absolument ! Le crédit Salaf Ecolo offre un taux d'intérêt inférieur d'environ 2% par rapport aux crédits classiques, des frais de dossier réduits et une assurance à tarif préférentiel. De plus, votre projet écologique vous permettra de réaliser des économies à long terme (réduction des factures d'énergie, économies de carburant, etc.). C'est donc une solution doublement avantageuse.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="eligibility" class="cta">
+        <div class="container">
+            <h2>Vérifiez votre éligibilité au crédit écologique</h2>
+            <p>Discutez avec notre assistant virtuel pour connaître les conditions et simuler votre crédit écologique en quelques clics.</p>
+            <a href="#" class="btn">Démarrer maintenant</a>
+        </div>
+    </section>
+
+    <section id="about" class="features">
+        <div class="container">
+            <h2 class="section-title">Notre Engagement Écologique</h2>
+            <p style="text-align: center; margin-bottom: 40px;">Chez Wafasalaf, nous nous engageons à soutenir des projets qui contribuent à un avenir plus durable. Notre mission est de faciliter le financement de solutions écologiques accessibles à tous.</p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-seedling feature-icon"></i>
+                    <h3>Reforestation</h3>
+                    <p>Pour chaque crédit octroyé, nous plantons un arbre pour compenser l'empreinte carbone et contribuer à la reforestation.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-solar-panel feature-icon"></i>
+                    <h3>Énergie Renouvelable</h3>
+                    <p>Nous soutenons activement les projets d'énergie renouvelable pour réduire notre dépendance aux combustibles fossiles.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-recycle feature-icon"></i>
+                    <h3>Économie Circulaire</h3>
+                    <p>Nous encourageons les projets qui favorisent le recyclage et la réduction des déchets pour une économie plus circulaire.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Wafasalaf</h3>
+                    <p>Leader du crédit à la consommation au Maroc, engagé pour un avenir durable.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Liens Rapides</h3>
+                    <ul>
+                        <li><a href="#home">Accueil</a></li>
+                        <li><a href="#features">Avantages</a></li>
+                        <li><a href="#projects">Projets éligibles</a></li>
+                        <li><a href="#calculator">Simulateur</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Nos Crédits</h3>
+                    <ul>
+                        <li><a href="#">Salaf Ecolo</a></li>
+                        <li><a href="#">Crédit Auto</a></li>
+                        <li><a href="#">Crédit Immédiat</a></li>
+                        <li><a href="#">Crédit Rénovation</a></li>
+                        <li><a href="#">Crédit Études</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contactez-nous</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 0522 54 51 51</li>
+                        <li><i class="fas fa-envelope"></i> contact@wafasalaf.ma</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 72, Angle Rue Ram Allah et Boulevard Abdelmoumen, Casablanca</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Wafasalaf. Tous droits réservés. Société de financement agréée par le Ministère des Finances.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="chat-hint">Besoin d'aide? Cliquez sur le chat!</div>
+
+    <!-- Script du chatbot Wafasalaf -->
+    <script>
+    (function() {
+        var script = document.createElement('script');
+        script.dataset.bot = "681a0b8ebb221a302740d109";
+        script.dataset.zindex = "99999";
+        script.src = "https://panel.chatfuel.com/widgets/chat-widget/chat-widget.js";
+        script.async = true;
+        script.defer = true;
+        document.getElementsByTagName('head')[0].appendChild(script);
+    })();
+
+    // Menu mobile toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            const isOpen = mobileMenu.classList.contains('active');
+            menuToggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Fermer le menu mobile lors du clic sur un lien
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Accordéon FAQ
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const accordionBody = this.nextElementSibling;
+                
+                if (this.classList.contains('active')) {
+                    accordionBody.style.maxHeight = accordionBody.scrollHeight + "px";
+                } else {
+                    accordionBody.style.maxHeight = 0;
+                }
+                
+                // Fermer les autres accordéons
+                accordionHeaders.forEach(otherHeader => {
+                    if (otherHeader !== this) {
+                        otherHeader.classList.remove('active');
+                        otherHeader.nextElementSibling.style.maxHeight = 0;
+                    }
+                });
+            });
+        });
+        
+        // Calculateur de crédit
+        const loanAmountInput = document.getElementById('loan-amount');
+        const loanAmountRange = document.getElementById('loan-amount-range');
+        const loanDurationInput = document.getElementById('loan-duration');
+        const loanDurationRange = document.getElementById('loan-duration-range');
+        const calculateBtn = document.getElementById('calculate-btn');
+        const resultDiv = document.getElementById('result');
+        
+        // Synchroniser les inputs et les sliders
+        loanAmountInput.addEventListener('input', function() {
+            loanAmountRange.value = this.value;
+        });
+        
+        loanAmountRange.addEventListener('input', function() {
+            loanAmountInput.value = this.value;
+        });
+        
+        loanDurationInput.addEventListener('input', function() {
+            loanDurationRange.value = this.value;
+        });
+        
+        loanDurationRange.addEventListener('input', function() {
+            loanDurationInput.value = this.value;
+        });
+        
+        // Calculer le crédit
+        calculateBtn.addEventListener('click', function() {
+            const amount = parseInt(loanAmountInput.value);
+            const duration = parseInt(loanDurationInput.value);
+            const projectType = document.getElementById('project-type').value;
+            
+            // Taux d'intérêt en fonction du type de projet (simulation)
+            let rate = 0.055; // Taux de base à 5.5%
+            
+            if (projectType === 'solar' || projectType === 'heating') {
+                rate = 0.052; // Taux préférentiel pour certains projets
+            } else if (projectType === 'car') {
+                rate = 0.058; // Légèrement plus élevé pour les véhicules
+            }
+            
+            // Calcul de la mensualité (formule simplifiée)
+            const monthlyRate = rate / 12;
+            const monthlyPayment = (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -duration));
+            
+            // Calcul de l'économie par rapport à un crédit standard
+            const standardRate = rate + 0.02; // 2% de plus pour un crédit standard
+            const standardMonthlyRate = standardRate / 12;
+            const standardMonthlyPayment = (amount * standardMonthlyRate) / (1 - Math.pow(1 + standardMonthlyRate, -duration));
+            const savings = Math.round((standardMonthlyPayment - monthlyPayment) * duration);
+            
+            // Mise à jour de l'affichage des résultats
+            resultDiv.innerHTML = `
+                <p>Pour un crédit de <strong>${amount.toLocaleString('fr-MA')} DH</strong> sur <strong>${duration} mois</strong></p>
+                <p>Votre mensualité estimée : <strong>${Math.round(monthlyPayment).toLocaleString('fr-MA')} DH</strong></p>
+                <p>Taux d'intérêt annuel : <strong>${(rate * 100).toFixed(2)}%</strong></p>
+                <p>Économie réalisée par rapport à un crédit standard : <strong>${savings.toLocaleString('fr-MA')} DH</strong></p>
+                <p><small>* Simulation à titre indicatif, non contractuelle</small></p>
+            `;
+        });
+    });
+    </script>
+</body>
+</html>
